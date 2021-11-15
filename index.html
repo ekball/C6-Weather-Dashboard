@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Dashboard</title>
+
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+
+</head>
+
+<body>
+
+    <!-- Start Header Section -->
+    <header class="container-fluid">
+
+        <h1>Weather Dashboard</h1>
+
+    </header>
+
+    <div class="column left">
+
+        <!-- Start Section 1 Section (Search for a City)-->
+        <section class="container">
+
+            <div class="mb-3">
+                <!-- can add disabled attribute to prevent selecting if nothing is chosen -->
+                <label for="city-search" class="form-label">Search for a City:</label>
+
+                <textarea class="form-control" id="search" rows="3">City Name</textarea>
+
+                <button type="button" class="btn btn-primary">Search</button>
+
+                <div class="btn-group-vertical">
+                    
+                    <!-- These Buttons need to be dynamic and swap between cities -->
+
+                    <!-- <button type="button" class="btn btn-danger">Left</button>
+
+                    <button type="button" class="btn btn-warning">Middle</button>
+
+                    <button type="button" class="btn btn-success">Right</button> -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <div class="column right">
+
+        <!-- Start Section 2 Section (Weather Details for Selected City)-->
+        <section class="container">
+
+            <h2>City Name</h2>
+            <!-- Current Weather Icon -->
+
+            <ul>
+                <li>
+                    <!-- Temperature -->
+                </li>
+                <li>
+                    <!-- Wind -->
+                </li>
+                <li>
+                    <!-- Humidity -->
+                </li>
+                <li>
+                    <!-- UV Index -->
+                </li>
+            </ul>
+
+
+        </section>
+
+        <!-- Start Section 3 Section (5-Day Forecast) -->
+        <section class="container">
+
+            <h3>5-Day Forecast</h3>
+
+            <!-- Day 1 (Current Day +1)-->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">Icon Placeholder</li>
+
+                        <li class="list-group-item">Temp: </li>
+        
+                        <li class="list-group-item">Wind: </li>
+        
+                        <li class="list-group-item">Humidity: </li>
+        
+                    </ul>
+        
+                </div>
+            </div>
+
+            <!-- Day 2 (Current Day +2)-->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+
+                <ul class="list-group list-group-flush">
+                    
+                    <li class="list-group-item">Icon Placeholder</li>
+
+                    <li class="list-group-item">Temp: </li>
+
+                    <li class="list-group-item">Wind: </li>
+
+                    <li class="list-group-item">Humidity: </li>
+
+                </ul>
+
+                </div>
+            </div>
+
+            <!-- Day 3 (Current Day +3)-->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item">Icon Placeholder</li>
+
+                    <li class="list-group-item">Temp: </li>
+
+                    <li class="list-group-item">Wind: </li>
+
+                    <li class="list-group-item">Humidity: </li>
+
+                </ul>
+
+                </div>
+            </div>
+
+            <!-- Day 4 (Current Day +4)-->
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+        
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">Icon Placeholder</li>
+
+                        <li class="list-group-item">Temp: </li>
+
+                        <li class="list-group-item">Wind: </li>
+
+                        <li class="list-group-item">Humidity: </li>
+
+                    </ul>
+
+                </div>
+            </div>
+            
+            <!-- Day 5 (Current Day +5)-->      
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">Icon Placeholder</li>
+
+                        <li class="list-group-item">Temp: </li>
+
+                        <li class="list-group-item">Wind: </li>
+
+                        <li class="list-group-item">Humidity: </li>
+
+                    </ul>
+
+                </div>
+
+            </div>  
+
+        </section>
+
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
