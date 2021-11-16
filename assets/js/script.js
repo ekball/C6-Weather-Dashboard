@@ -1,8 +1,6 @@
 // create a variable for the current date and 
 var currentDate = new Date();
-var currentDatePlus1 = new Date(currentDate);
-currentDatePlus1 = currentDatePlus1.setDate(currentDatePlus1.getDate() + 1)
-currentDatePlus1 = currentDatePlus1.toDateString();
+var currentDatePlus1 = currentDate.setDate(currentDate.getDate() + 1);
 console.log(currentDatePlus1);
 
 function getApi(city) {
@@ -46,6 +44,8 @@ function getApi(city) {
 
             currentForecast(data)
 
+            futureForecast(data);
+
             })
 
       })
@@ -70,21 +70,62 @@ $("#search-button").click(function () {
 function futureForecast (data) {
 
     // find the forecast card elements
+
         // card for 1 day out
-        var dayOne = $('#day-1-date').text(currentDate.getDate() + 1);
+        // $('#day-1-date').text(currentDatePlus1);
+        
+        // $('#day-1-icon').text()
+
+        $('#day-1-temp').text("Temperature: " + data.daily[1].temp.day + " °F");
+
+        $('#day-1-wind').text("Wind Speed: " + data.daily[1].wind_speed + " MPH");
+
+        $('#day-1-humid').text("Humidity: " + data.daily[1].humidity + " %");
 
         // card for 2 days out
-        var dayTwo = $('#day2').append("<li></li>");
+        // $('#day-2-date').text(currentDatePlus2);
+        
+        // $('#day-2-icon')
+
+        $('#day-2-temp').text("Temperature: " + data.daily[2].temp.day + " °F");
+
+        $('#day-2-wind').text("Wind Speed: " + data.daily[2].wind_speed + " MPH");
+
+        $('#day-2-humid').text("Humidity: " + data.daily[2].humidity + " %");
 
         // card for 3 days out
-        var dayThree = $('#day3').append("<li></li>");
+        // $('#day-3-date').text(currentDatePlus3);
+        
+        // $('#day-3-icon')
 
+        $('#day-3-temp').text("Temperature: " + data.daily[3].temp.day + " °F");
+
+        $('#day-3-wind').text("Wind Speed: " + data.daily[3].wind_speed + " MPH");
+
+        $('#day-3-humid').text("Humidity: " + data.daily[3].humidity + " %");
+  
         // card for 4 days out
-        var dayFour = $('#day4').append("<li></li>");
+        // $('#day-4-date').text(currentDatePlus4);
+        
+        // $('#day-4-icon')
 
+        $('#day-4-temp').text("Temperature: " + data.daily[4].temp.day + " °F");
+
+        $('#day-4-wind').text("Wind Speed: " + data.daily[4].wind_speed + " MPH");
+
+        $('#day-4-humid').text("Humidity: " + data.daily[4].humidity + " %");
+  
         // card for 5 days out
-        var dayFive = $('#day5').append("<li></li>");
+        // $('#day-5-date').text(currentDatePlus5);
+        
+        // $('#day-5-icon')
 
+        $('#day-5-temp').text("Temperature: " + data.daily[5].temp.day + " °F");
+
+        $('#day-5-wind').text("Wind Speed: " + data.daily[5].wind_speed + " MPH");
+
+        $('#day-5-humid').text("Humidity: " + data.daily[5].humidity + " %");
+  
 
 };
 
@@ -112,8 +153,6 @@ function currentForecast (data) {
 function main() {
 
 searchBar();
-
-futureForecast();
 
 };
 
