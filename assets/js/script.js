@@ -1,7 +1,7 @@
 // create a variable for the current date and 
 var currentDate = new Date();
 var currentDatePlus1 = currentDate.setDate(currentDate.getDate() + 1);
-console.log(currentDatePlus1);
+// console.log(currentDatePlus1);
 
 function getApi(city) {
 
@@ -76,9 +76,9 @@ function futureForecast (data) {
         
         // $('#day-1-icon').text()
 
-        $('#day-1-temp').text("Temperature: " + data.daily[1].temp.day + " °F");
+        $('#day-1-temp').text("Temp: " + data.daily[1].temp.day + " °F");
 
-        $('#day-1-wind').text("Wind Speed: " + data.daily[1].wind_speed + " MPH");
+        $('#day-1-wind').text("Wind: " + data.daily[1].wind_speed + " MPH");
 
         $('#day-1-humid').text("Humidity: " + data.daily[1].humidity + " %");
 
@@ -87,9 +87,9 @@ function futureForecast (data) {
         
         // $('#day-2-icon')
 
-        $('#day-2-temp').text("Temperature: " + data.daily[2].temp.day + " °F");
+        $('#day-2-temp').text("Temp: " + data.daily[2].temp.day + " °F");
 
-        $('#day-2-wind').text("Wind Speed: " + data.daily[2].wind_speed + " MPH");
+        $('#day-2-wind').text("Wind: " + data.daily[2].wind_speed + " MPH");
 
         $('#day-2-humid').text("Humidity: " + data.daily[2].humidity + " %");
 
@@ -98,9 +98,9 @@ function futureForecast (data) {
         
         // $('#day-3-icon')
 
-        $('#day-3-temp').text("Temperature: " + data.daily[3].temp.day + " °F");
+        $('#day-3-temp').text("Temp: " + data.daily[3].temp.day + " °F");
 
-        $('#day-3-wind').text("Wind Speed: " + data.daily[3].wind_speed + " MPH");
+        $('#day-3-wind').text("Wind: " + data.daily[3].wind_speed + " MPH");
 
         $('#day-3-humid').text("Humidity: " + data.daily[3].humidity + " %");
   
@@ -109,9 +109,9 @@ function futureForecast (data) {
         
         // $('#day-4-icon')
 
-        $('#day-4-temp').text("Temperature: " + data.daily[4].temp.day + " °F");
+        $('#day-4-temp').text("Temp: " + data.daily[4].temp.day + " °F");
 
-        $('#day-4-wind').text("Wind Speed: " + data.daily[4].wind_speed + " MPH");
+        $('#day-4-wind').text("Wind: " + data.daily[4].wind_speed + " MPH");
 
         $('#day-4-humid').text("Humidity: " + data.daily[4].humidity + " %");
   
@@ -120,9 +120,9 @@ function futureForecast (data) {
         
         // $('#day-5-icon')
 
-        $('#day-5-temp').text("Temperature: " + data.daily[5].temp.day + " °F");
+        $('#day-5-temp').text("Temp: " + data.daily[5].temp.day + " °F");
 
-        $('#day-5-wind').text("Wind Speed: " + data.daily[5].wind_speed + " MPH");
+        $('#day-5-wind').text("Wind: " + data.daily[5].wind_speed + " MPH");
 
         $('#day-5-humid').text("Humidity: " + data.daily[5].humidity + " %");
   
@@ -135,19 +135,31 @@ function currentForecast (data) {
     // $('#current-city').append("<p>" + data.current.weather.icon + "</p>");
 
     // make a new list item to attach to unordered list and set the current Temp in Farenheit to it
-    $('#current-conditions').append("<li>Temperature: " + data.current.temp + " °F</li>");
+    $('#current-temp').text("Temperature: " + data.current.temp + " °F");
 
     // make a new list item to attach to unordered list and set the current Wind Speed to it
-    $('#current-conditions').append("<li>Temperature: " + data.current.wind_speed + " MPH</li>");
-
+    $('#current-wind').text("Wind Speed: " + data.current.wind_speed + " MPH");
 
     // make a new list item to attach to unordered list and set the current Humidity percentage to it
-    $('#current-conditions').append("<li>Temperature: " + data.current.humidity + " %</li>");
-
+    $('#current-humid').text("Humidity: " + data.current.humidity + " %");
 
     // make a new list item to attach to unordered list and set the current UV Index to it
-    $('#current-conditions').append("<li>Temperature: " + data.current.uv + " °F</li>");
+    $('#style-uv').text(data.current.uvi);
 
+        // if the UV is at or below 4, background is green
+        if ( data.current.uvi <=4 ){
+            $('#style-uv').css("background-color", "green");
+        }
+
+        // if the UV is between 4 and 8 (including 8) background is yellow
+        else if ( datadata.current.uvi > 4 && data.current.uvi <=8 ) {
+            $('#style-uv').css("background-color", "yellow");
+        }
+
+        // if the UV is above 8, background is red
+        else {
+            $('#style-uv').css("background-color", "red");
+        }
 };
 
 function main() {

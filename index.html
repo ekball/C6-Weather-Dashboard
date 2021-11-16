@@ -32,12 +32,12 @@
     </header>
 
     <div class="row justify-content-start">
-        <div class="col-4">
+        <div class="col-3">
                
             <!-- Start Section 1 Section (Search for a City)-->
             <section class="container">
 
-                <div class="mb-3">
+                <div class="mb-3" id="search-section">
                     <!-- can add disabled attribute to prevent selecting if nothing is chosen -->
                     <label for="city-search" class="form-label">Search for a City:</label>
     
@@ -63,42 +63,55 @@
 
         </div>
 
-        <div class="col-8">
+        <div class="col-9">
 
             <!-- Start Section 2 Section (Weather Details for Selected City)-->
             <section class="container">
 
-                <h2 id="current-city">City Name</h2>
+                <h2 id="current-city">Location</h2>
 
-                 <!-- Current Weather Icon -->
+                <div class="this-city">
 
-                <ul id="current-conditions">
-                    
-                </ul>
+                    <!-- Current Weather Icon -->
+
+                    <ul id="current-conditions">
+                        
+                        <li id="current-temp">Temperature: </li>
+
+                        <li id="current-wind">Wind Speed: </li>
+            
+                        <li id="current-humid">Humidity: </li>
+            
+                        <li id="current-uv">UV Index: <li id="style-uv"></li>
+                        </li>
+            
+                    </ul>
+
+                </div>
 
             </section>
 
             <!-- Start Section 3 Section (5-Day Forecast) -->
             <section class="container">
 
-                <h3>5-Day Forecast</h3>
+                <h3>5-Day Forecast:</h3>
 
                 <!-- Day 1 (Current Day +1)-->
-                <div class="card" style="width: 9rem;">
+                <div class="card" style="width: 11rem;">
 
                     <div class="card-body" id="day1">
 
                         <h5 class="card-title" id="day-1-date"></h5>
 
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush forecast">
 
                             <li class="list-group-item" id="day-1-icon"></li>
 
-                            <li class="list-group-item" id="day-1-temp"> </li>
+                            <li class="list-group-item" id="day-1-temp">Temp: </li>
             
-                            <li class="list-group-item" id="day-1-wind"> </li>
+                            <li class="list-group-item" id="day-1-wind">Wind Speed: </li>
             
-                            <li class="list-group-item" id="day-1-humid"> </li>
+                            <li class="list-group-item" id="day-1-humid">Humidity: </li>
             
                         </ul>
             
@@ -106,21 +119,21 @@
                 </div>
 
                 <!-- Day 2 (Current Day +2)-->
-                <div class="card" style="width: 9rem;">
+                <div class="card" style="width: 11rem;">
 
                     <div class="card-body" id="day2">
 
                         <h5 class="card-title" id="day-2-date"></h5>
 
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush forecast">
 
                             <li class="list-group-item" id="day-2-icon"></li>
 
-                            <li class="list-group-item" id="day-2-temp"> </li>
+                            <li class="list-group-item" id="day-2-temp">Temp: </li>
             
-                            <li class="list-group-item" id="day-2-wind"> </li>
+                            <li class="list-group-item" id="day-2-wind">Wind Speed: </li>
             
-                            <li class="list-group-item" id="day-2-humid"> </li>
+                            <li class="list-group-item" id="day-2-humid">Humidity: </li>
             
                         </ul>
 
@@ -128,21 +141,21 @@
                 </div>
 
                 <!-- Day 3 (Current Day +3)-->
-                <div class="card" style="width: 9rem;">
+                <div class="card" style="width: 11rem;">
 
                     <div class="card-body" id="day3">
 
                         <h5 class="card-title" id="day-3-date"></h5>
 
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush forecast">
 
                             <li class="list-group-item" id="day-3-icon"></li>
 
-                            <li class="list-group-item" id="day-3-temp"> </li>
+                            <li class="list-group-item" id="day-3-temp">Temp: </li>
             
-                            <li class="list-group-item" id="day-3-wind"> </li>
+                            <li class="list-group-item" id="day-3-wind">Wind Speed: </li>
             
-                            <li class="list-group-item" id="day-3-humid"> </li>
+                            <li class="list-group-item" id="day-3-humid">Humidity: </li>
             
                         </ul>
 
@@ -150,21 +163,21 @@
                 </div>
 
                 <!-- Day 4 (Current Day +4)-->
-                <div class="card" style="width: 9rem;">
+                <div class="card" style="width: 11rem;">
 
                     <div class="card-body" id="day4">
 
                         <h5 class="card-title" id="day-4-date"></h5>
 
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush forecast">
 
                             <li class="list-group-item" id="day-4-icon"></li>
 
-                            <li class="list-group-item" id="day-4-temp"> </li>
+                            <li class="list-group-item" id="day-4-temp">Temp: </li>
             
-                            <li class="list-group-item" id="day-4-wind"> </li>
+                            <li class="list-group-item" id="day-4-wind">Wind Speed: </li>
             
-                            <li class="list-group-item" id="day-4-humid"> </li>
+                            <li class="list-group-item" id="day-4-humid">Humidity: </li>
             
                         </ul>
 
@@ -172,21 +185,21 @@
                 </div>
                 
                 <!-- Day 5 (Current Day +5)-->      
-                <div class="card" style="width: 9rem;">
+                <div class="card" style="width: 11rem;">
 
                     <div class="card-body" id="day5">
 
                         <h5 class="card-title" id="day-5-date"></h5>
 
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush forecast">
 
                             <li class="list-group-item" id="day-5-icon"></li>
 
-                            <li class="list-group-item" id="day-5-temp"> </li>
+                            <li class="list-group-item" id="day-5-temp">Temp: </li>
             
-                            <li class="list-group-item" id="day-5-wind"> </li>
+                            <li class="list-group-item" id="day-5-wind">Wind Speed: </li>
             
-                            <li class="list-group-item" id="day-5-humid"> </li>
+                            <li class="list-group-item" id="day-5-humid">Humidity: </li>
             
                         </ul>
 

@@ -4,20 +4,84 @@ header {
     color: white;
 
 }
- 
-.card {
-
-    background-image: linear-gradient(45deg, #4d5c5f 0%, #334e5c 52%, #3c3c5f 90%);
-    color: white;
-}
- 
-.list-group-item {
-
-    background-image: linear-gradient(45deg, #3c3c5f 0%, #334e5c 52%,  #4d5c5f 90%);
-    color: white;
-
-}
 
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
+
+li {
+    margin: 0;
+    
+}
+
+ /* Start of Styling for the Search Section */
+
+#search-section {
+    border-bottom: solid black 3px;
+    padding: 5px;
+    margin: 10px;
+}
+
+#search-button {
+    margin-top: 10px;
+    width: 100%;
+
+}
+
+
+ /* End of Styling for the Search Section */
+
+ /* Start of Styling for the 5-Day Forecast Section */
+.card {
+    background-color: rgb(40, 78, 116);
+    color: white;
+    display: inline-flex;
+    margin: 25px;
+    margin-left: 0;
+    text-align: left;
+}
+ 
+.card-body {
+    padding: 15px;
+}
+
+.list-group-item {
+    background-color: rgb(40, 78, 116);
+    color: white;
+}
+
+.forecast {
+    font-size: 13px;
+}
+
+.forecast li {
+    text-align: left;
+    padding: 10px;
+    padding-left: 0;
+    border: none;
+
+}
+
+/* End of Styling for the 5-Day Forecast Section */
+
+/* Styling for the Current Conditions Section */
+.this-city {
+    border: solid black 5px;
+    padding: 20px;
+    font-size: 20px;
+    margin: 15px 15px 15px 0;
+}
+
+.current-conditions li {
+    padding: 10px;
+    margin: 10px;
+    padding-left: 0;
+}
+
+#style-uv {
+
+    display: inline-flex;
+
+}
+/* End of Styling for the Current Conditions Section */
