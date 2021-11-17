@@ -12,34 +12,40 @@ ul {
 
 li {
     margin: 0;
-    
 }
 
- /* Start of Styling for the Search Section */
+/* Start of Styling for the Search Section */
 
 #search-section {
     border-bottom: solid black 3px;
     padding: 5px;
     margin: 10px;
+    border-radius: 8px;
 }
 
 #search-button {
     margin-top: 10px;
     width: 100%;
-
+    border-radius: 20px;
 }
 
 
- /* End of Styling for the Search Section */
+/* End of Styling for the Search Section */
 
- /* Start of Styling for the 5-Day Forecast Section */
+/* Start of Styling for the 5-Day Forecast Section */
+#forecast-container {
+    margin-top: 50px;
+}
+
 .card {
     background-color: rgb(40, 78, 116);
     color: white;
     display: inline-flex;
     margin: 25px;
     margin-left: 0;
+    margin-top: 0;
     text-align: left;
+    border-radius: 8px;
 }
  
 .card-body {
@@ -52,36 +58,64 @@ li {
 }
 
 .forecast {
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .forecast li {
     text-align: left;
-    padding: 10px;
+    padding: 5px;
     padding-left: 0;
+    margin: 5px;
     border: none;
-
 }
+
+.icon {
+    width: 40%;
+    height: 40%;
+}
+
 
 /* End of Styling for the 5-Day Forecast Section */
 
 /* Styling for the Current Conditions Section */
+.city-title {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+#current-city {
+    display: inline-flex;
+}
+
 .this-city {
+    display: flex;
     border: solid black 5px;
     padding: 20px;
     font-size: 20px;
     margin: 15px 15px 15px 0;
+    border-radius: 14px;
+    
 }
 
 .current-conditions li {
+    display: flex;
     padding: 10px;
     margin: 10px;
     padding-left: 0;
+    align-items: center;
+}
+
+#current-uv {
+    display: inline-flex;
 }
 
 #style-uv {
-
     display: inline-flex;
-
+    border-radius: 4px;
+    padding: 2px 7px 2px 7px;
+    margin-left: 3px;
 }
 /* End of Styling for the Current Conditions Section */

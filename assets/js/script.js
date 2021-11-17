@@ -166,7 +166,7 @@ function currentForecast (data) {
 
         // if the UV is at or below 4, background is green
         if ( data.current.uvi <=4 ){
-            $('#style-uv').css("background-color", "green");
+            $('#style-uv').css("background-color", "lightgreen");
         }
 
         // if the UV is between 4 and 8 (including 8) background is yellow
@@ -176,7 +176,7 @@ function currentForecast (data) {
 
         // if the UV is above 8, background is red
         else {
-            $('#style-uv').css("background-color", "red");
+            $('#style-uv').css("background-color", "lightred");
         }
 };
 
