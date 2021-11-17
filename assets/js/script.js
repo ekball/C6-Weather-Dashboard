@@ -1,3 +1,5 @@
+var cityHistory = [];
+
 function getApi(city) {
 
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=8dc431793fa117a46c92a939890cc1fc"
@@ -48,18 +50,30 @@ function getApi(city) {
 
 };
 
-function searchBar() {
-
-    
-
-};
-
 $("#search-button").click(function () {
 
     var city = $("#search-bar").val();
+    cityHistory.push(city);
+
     console.log(city);
 
     getApi(city);
+
+    for (var i=0; i < cityHistory.length; i++){
+
+        debugger;
+
+        // save the city that was typed into local storage
+        localStorage.setItem("city " + i + " Info", JSON.stringify(cityHistory[i]));
+
+        var newCity = $('<button type="button">' + city + '</button>');
+
+        $("#city-buttons").append(newCity);
+        
+        // retrieve the item from local storage
+        JSON.parse(localStorage.getItem("city " + i + " Info"));
+
+    }
 
 });
 
