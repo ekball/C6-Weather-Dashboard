@@ -1,8 +1,3 @@
-// create a variable for the current date and 
-var currentDate = new Date();
-var currentDatePlus1 = currentDate.setDate(currentDate.getDate() + 1);
-// console.log(currentDatePlus1);
-
 function getApi(city) {
 
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=8dc431793fa117a46c92a939890cc1fc"
@@ -14,20 +9,21 @@ function getApi(city) {
 
       .then(function (data) {
         // Use the console to examine the response
-        console.log(data);
+        // console.log(data);
 
-         // change the date to a more readable string
-         currentDate = currentDate.toDateString();
+        // create a variable for the current date and change it to YYYY-MM-DD format without the time on the end
+        var currentDate = new Date();
+        currentDate = currentDate.toISOString().split('T')[0];
 
         // change the name of the city (and add the current date to it) in the top right container that holds current weather conditions for that city
         var cityName = $('#current-city').text(data.name + " (" + currentDate + ")");
 
         // find the coordinates for longitude and latitude
         var longitude = data.coord.lon;
-        console.log(longitude);
+        // console.log(longitude);
   
         var latitude = data.coord.lat;
-        console.log(latitude);
+        // console.log(latitude);
 
         // create new api url that pulls more detailed info (such as UV Index)
         var longLatUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=hourly,minutely&units=imperial&appid=8dc431793fa117a46c92a939890cc1fc"
@@ -69,12 +65,31 @@ $("#search-button").click(function () {
 
 function futureForecast (data) {
 
+    // set variables to get month/year
+    var month = new Date().getMonth() + 1;
+    var year = new Date().getFullYear();
+
+    // set variables to get each of the next 5 days
+    var dayOne = new Date().getDate() + 1;
+    var dayTwo = new Date().getDate() + 2;
+    var dayThree = new Date().getDate() + 3;
+    var dayFour = new Date().getDate() + 4;
+    var dayFive = new Date().getDate() + 5;
+
+    // set the current weather icon for the respective day to a url
+    var icon1 = "http://openweathermap.org/img/wn/" + data.daily[1].weather[0].icon +  "@2x.png";
+    var icon2 = "http://openweathermap.org/img/wn/" + data.daily[2].weather[0].icon +  "@2x.png";
+    var icon3 = "http://openweathermap.org/img/wn/" + data.daily[3].weather[0].icon +  "@2x.png";
+    var icon4 = "http://openweathermap.org/img/wn/" + data.daily[4].weather[0].icon +  "@2x.png";
+    var icon5 = "http://openweathermap.org/img/wn/" + data.daily[5].weather[0].icon +  "@2x.png";
+
+
     // find the forecast card elements
 
         // card for 1 day out
-        // $('#day-1-date').text(currentDatePlus1);
+        $('#day-1-date').text(month + "/" + dayOne + "/" + year);
         
-        // $('#day-1-icon').text()
+        $("#icon-1-url").attr("src", icon1);
 
         $('#day-1-temp').text("Temp: " + data.daily[1].temp.day + " °F");
 
@@ -83,9 +98,9 @@ function futureForecast (data) {
         $('#day-1-humid').text("Humidity: " + data.daily[1].humidity + " %");
 
         // card for 2 days out
-        // $('#day-2-date').text(currentDatePlus2);
+        $('#day-2-date').text(month + "/" + dayTwo + "/" + year);
         
-        // $('#day-2-icon')
+        $("#icon-2-url").attr("src", icon2);
 
         $('#day-2-temp').text("Temp: " + data.daily[2].temp.day + " °F");
 
@@ -94,9 +109,9 @@ function futureForecast (data) {
         $('#day-2-humid').text("Humidity: " + data.daily[2].humidity + " %");
 
         // card for 3 days out
-        // $('#day-3-date').text(currentDatePlus3);
+        $('#day-3-date').text(month + "/" + dayThree + "/" + year);
         
-        // $('#day-3-icon')
+        $("#icon-3-url").attr("src", icon3);
 
         $('#day-3-temp').text("Temp: " + data.daily[3].temp.day + " °F");
 
@@ -105,9 +120,9 @@ function futureForecast (data) {
         $('#day-3-humid').text("Humidity: " + data.daily[3].humidity + " %");
   
         // card for 4 days out
-        // $('#day-4-date').text(currentDatePlus4);
+        $('#day-4-date').text(month + "/" + dayFour + "/" + year);
         
-        // $('#day-4-icon')
+        $("#icon-4-url").attr("src", icon4);
 
         $('#day-4-temp').text("Temp: " + data.daily[4].temp.day + " °F");
 
@@ -116,9 +131,9 @@ function futureForecast (data) {
         $('#day-4-humid').text("Humidity: " + data.daily[4].humidity + " %");
   
         // card for 5 days out
-        // $('#day-5-date').text(currentDatePlus5);
+        $('#day-5-date').text(month + "/" + dayFive + "/" + year);
         
-        // $('#day-5-icon')
+        $("#icon-5-url").attr("src", icon5);
 
         $('#day-5-temp').text("Temp: " + data.daily[5].temp.day + " °F");
 
@@ -131,8 +146,11 @@ function futureForecast (data) {
 
 function currentForecast (data) {
 
+    // set the current weather icon
+    var currentIcon = "http://openweathermap.org/img/wn/" + data.current.weather[0].icon +  "@2x.png";
+
     // make a new element to attach to header h2 and set the current weather icon to it
-    // $('#current-city').append("<p>" + data.current.weather.icon + "</p>");
+    $("#current-icon").attr("src", currentIcon );
 
     // make a new list item to attach to unordered list and set the current Temp in Farenheit to it
     $('#current-temp').text("Temperature: " + data.current.temp + " °F");
