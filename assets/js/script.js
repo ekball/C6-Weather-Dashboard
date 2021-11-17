@@ -180,13 +180,7 @@ function currentForecast (data) {
         }
 };
 
-function main() {
 
-searchBar();
-
-};
-
-main();
 
 
 
