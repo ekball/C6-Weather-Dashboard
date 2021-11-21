@@ -32,6 +32,25 @@ li {
     
 }
 
+#load-button {
+    margin-top: 0;
+    margin-right: 2px;
+    width: 48%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+#clear-button {
+    margin-top: 0;
+    margin-left: 5px;
+    width: 48%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    justify-content: center;
+}
 
 /* End of Styling for the Search Section */
 
