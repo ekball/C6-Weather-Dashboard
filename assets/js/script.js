@@ -1,5 +1,3 @@
-var cityHistory = [];
-
 function getApi(city) {
 
     var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=8dc431793fa117a46c92a939890cc1fc"
@@ -52,27 +50,47 @@ function getApi(city) {
 
 $("#search-button").click(function () {
 
+    // save the value of the search bar to a variable
     var city = $("#search-bar").val();
-    cityHistory.push(city);
 
     console.log(city);
 
+    // get all api info to display
     getApi(city);
 
-    for (var i=0; i < cityHistory.length; i++){
+    // retrieve the item from local storage    
+    var cityHistory = JSON.parse(localStorage.getItem("cityInfo"));
 
-        debugger;
+    // if there is nothing in local storage, create an empty array for cities to be stored in
+    if (!cityHistory){
+        var cityHistory = [];
+    }
 
-        // save the city that was typed into local storage
-        localStorage.setItem("city " + i + " Info", JSON.stringify(cityHistory[i]));
+    // add the city searched by user to an array
+    cityHistory.push(city);
 
-        var newCity = $('<button type="button">' + city + '</button>');
+    // save the city that was typed into local storage
+    localStorage.setItem("cityInfo", JSON.stringify(cityHistory));
 
+
+
+
+    for (var i=0; i < cityHistory.length; i++) {
+
+        // if the loop is resarting, erase the old buttons and re-add from scratch with additional buttons
+        if (i===0) {
+            $("#city-buttons").empty();
+        }
+
+        // save the new city as a button
+        var newCity = $('<button type="button">' + cityHistory[i] + '</button>');
+
+        // when the button is clicked, get the city's info to display again
+        newCity.attr( "onclick", "getApi(city)" );
+
+        // append the new city to the list of city buttons
         $("#city-buttons").append(newCity);
         
-        // retrieve the item from local storage
-        JSON.parse(localStorage.getItem("city " + i + " Info"));
-
     }
 
 });
