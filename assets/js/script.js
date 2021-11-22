@@ -52,7 +52,7 @@ $("#load-button").click(function () {
 
     // retrieve the item from local storage    
     var cityHistory = JSON.parse(localStorage.getItem("cityInfo"));
-    
+
     for (var i=0; i < cityHistory.length; i++) {
 
         // if the loop is resarting, erase the old buttons and re-add from scratch with additional buttons
@@ -74,6 +74,7 @@ $("#load-button").click(function () {
 
 $("#clear-button").click(function () {
     localStorage.clear();
+    $("#city-buttons").empty();
 });
 
 $("#search-button").click(function () {
@@ -85,7 +86,6 @@ $("#search-button").click(function () {
 
     // get all api info to display
     getApi(city);
-
 
     // retrieve the item from local storage    
     var cityHistory = JSON.parse(localStorage.getItem("cityInfo"));
@@ -101,8 +101,6 @@ $("#search-button").click(function () {
     // save the city that was typed into local storage
     localStorage.setItem("cityInfo", JSON.stringify(cityHistory));
 
-
-
     for (var i=0; i < cityHistory.length; i++) {
 
         // if the loop is resarting, erase the old buttons and re-add from scratch with additional buttons
@@ -111,13 +109,20 @@ $("#search-button").click(function () {
         }
 
         // save the new city as a button
-        var newCity = $('<button type="button">' + cityHistory[i] + '</button>');
+        var newCityButton = $('<button type="button" class="city-click">' + cityHistory[i] + '</button>');
+
+        // set a unique attribute to the buttons to call when clicked
+        newCityButton.attr("data-event", cityHistory[i]);
 
         // when the button is clicked, get the city's info to display again
-        newCity.attr( "onclick", "getApi(city)" );
+        newCityButton.click(function() {
+
+            console.log(cityHistory);
+
+        });
 
         // append the new city to the list of city buttons
-        $("#city-buttons").append(newCity);
+        $("#city-buttons").append(newCityButton);
         
     }
 
@@ -239,10 +244,3 @@ function currentForecast (data) {
             $('#style-uv').css("background-color", "lightred");
         }
 };
-
-
-
-
-
-
-// API Key = 8dc431793fa117a46c92a939890cc1fc
